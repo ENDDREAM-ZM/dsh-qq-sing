@@ -1,0 +1,50 @@
+{
+  "name": "dsh-qq-sing",
+  "version": "1.0.7",
+  "description": "QQ 点歌插件（DSH 插件，OneBot v11）：点歌 → 选音源 → 选歌，三源 QQ音乐/酷狗/网易云",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh-plugin",
+    "qq",
+    "onebot"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compat": {
+      "min": "0.1.0",
+      "tested": [
+        "0.2.1-rc.2"
+      ],
+      "note": "工具注册/defineTool/schemastery 全部运行时探测，缺了就自动降级"
+    }
+  }
+}
